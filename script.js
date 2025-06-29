@@ -11,11 +11,16 @@
 
 // console.log(document.querySelector('.guess').value);
 
+const secretNumber = Math.trunc(Math.random() * 20);
+document.querySelector('.number').textContent = secretNumber;
+
 document.querySelector('.check').addEventListener('click', function () {
   const nrGhicit = Number(document.querySelector('.guess').value);
   console.log(nrGhicit, typeof nrGhicit);
 
   if (!nrGhicit) {
-    document.querySelector('.message').textContent = `No number!❌`
+    document.querySelector('.message').textContent = `No number!❌`;
+  } else if (nrGhicit == secretNumber) {
+    document.querySelector('.message').textContent = `🎉 Correct number!`;
   }
 });
