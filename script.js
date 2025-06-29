@@ -13,6 +13,8 @@
 
 let secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
+let highscore = 0;
+
 document.querySelector('.check').addEventListener('click', function () {
   const nrGhicit = Number(document.querySelector('.guess').value);
   console.log(nrGhicit, typeof nrGhicit);
@@ -25,8 +27,11 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = `🎉 Correct number!`;
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = '#60b347';
-
     document.querySelector('.number').style.width = '30rem';
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
   } else if (nrGhicit > secretNumber) {
     // Too high
     if (score > 1) {
